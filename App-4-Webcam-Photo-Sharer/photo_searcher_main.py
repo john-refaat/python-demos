@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from duckduck_go_demo import search_and_download_images
-Builder.load_file("frontend.kv")
+Builder.load_file("photo_searcher_frontend.kv")
 
 class FirstScreen(Screen):
 
