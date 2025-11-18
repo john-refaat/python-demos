@@ -1,0 +1,95 @@
+<CameraScreen>:
+    GridLayout:
+        cols: 1
+        padding: '10dp'
+        spacing: '10dp'
+        Camera:
+            id: camera
+            resolution: (640, 480)
+            play: False
+            size_hint_y: 0.8
+            opacity: 0
+        Button:
+            id: toggle_camera_button
+            text: 'Start Camera'
+            on_press: root.toggle_camera()
+            size_hint_y: 0.1
+            background_normal: 'images/normal.png'
+            background_down: 'images/down.png'
+        Button:
+            id: capture_button
+            text: 'Capture'
+            disabled: True
+            on_press: root.capture()
+            size_hint_y: 0.1
+            background_normal: 'images/normal.png'
+            background_down: 'images/down.png'
+
+<ImageScreen>:
+    id: image_screen
+    GridLayout:
+        cols: 1
+        padding: 10
+        spacing: 10
+        Image:
+            id: image
+            source: ''
+            size_hint: 1, 1
+            allow_stretch: True
+            size_hint_y: 0.7
+        Button:
+            id: share_button
+            text: 'Create Shareable Link'
+            on_press: root.create_link()
+            size_hint_y: 0.1
+            background_normal: 'images/normal.png'
+            background_down: 'images/down.png'
+        Label:
+            id: link_label
+            text: ''
+            size_hint: 1, 1
+            font_size: '20sp'
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: 0.1
+        GridLayout:
+            cols: 4
+            size_hint_y: 0.1
+            Button:
+                id: back_button
+                text: 'Back'
+                on_press: root.back()
+                background_normal: 'images/normal.png'
+                background_down: 'images/down.png'
+            Button:
+                id: copy_button
+                text: 'Copy Link'
+                on_press: root.copy_link()
+                background_normal: 'images/normal.png'
+                background_down: 'images/down.png'
+            Button:
+                id: open_button
+                text: 'Open Link'
+                on_press: root.open()
+                background_normal: 'images/normal.png'
+                background_down: 'images/down.png'
+            Button:
+                id: delete_button
+                text: 'Delete'
+                on_press: root.delete()
+                background_normal: 'images/normal.png'
+                background_down: 'images/down.png'
+
+<RootWidget>:
+    canvas.before:
+        Color:
+            rgba: 0.3, 0.2, 0.1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    CameraScreen:
+        id: camera_screen
+        name: 'camera_screen'
+    ImageScreen:
+        id: image_screen
+        name: 'image_screen'
