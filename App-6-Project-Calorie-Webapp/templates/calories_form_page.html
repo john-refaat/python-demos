@@ -23,6 +23,10 @@
     {{caloriesform.country.label}} {{caloriesform.country}}
     <br>
 
+    {% if not result %}
+    <div class="error">{{error}}</div>
+    {% endif %}
+
     <br>
     {{caloriesform.button}}
     <br>
