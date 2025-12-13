@@ -22,20 +22,33 @@ def home():
     jp.Div(a=div2, text="I am a cool interactive div!", mouseenter=mouse_enter,
            mouseleave=mouse_leave,
            classes = "hover:bg-red-500")
+    div3 = jp.Div(a=div, classes="bg-gray-300 grid grid-cols-2 gap-4 m-4 p-4")
+
+    jp.QButton(a=div3, color="primary", icon="save", text="Hello!", classes="q-pa-md")
+
+    jp.QBtn(a=div3, color="secondary", icon="map", text="Hello!", classes="q-pa-md")
     return wp
 
 @jp.SetRoute("/about")
 def about():
     wp = jp.QuasarPage(tailwind=True)
+    return wp
 
 def sum_up(widget, msg):
+    print("sum up called")
     sum = float(widget.in1.value) + float(widget.in2.value)
     widget.d.text = sum
 
 def mouse_enter(widget, msg):
+    print("mouse enter called")
+    print(widget)
+    print(msg)
     widget.text = "A mouse entered the house!"
 
 def mouse_leave(widget, msg):
+    print("mouse leave called")
+    print(widget)
+    print(msg)
     widget.text = "The mouse left!"
 
 jp.justpy()
